@@ -1,0 +1,23 @@
+---
+import type { GetStaticPaths } from "astro";
+import Primary from "../../../layouts/primary.astro";
+import ContentLayout from "../../../layouts/content.astro"
+
+import { getCollection, render } from "astro:content";
+export const getStaticPaths = (async () => {
+    const drafts = await getCollection('writing_drafts');
+    return drafts.map(draft => ({
+        params: { draft_id: draft.id },
+        props: { draft }
+    }));
+}) satisfies GetStaticPaths;
+
+const { draft } = Astro.props;
+const { Content } = await render(draft);
+---
+
+<Primary current_page="writing">
+    <ContentLayout title={draft.data.title}>
+        <Content />
+    </ContentLayout>
+</Primary>

@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/primary.astro"
+import Content from "../../layouts/content.astro"
+
+import { getCollection } from "astro:content";
+const all_drafts = (await getCollection('writing_drafts')).sort( (first, second) => second.data.date.valueOf() - first.data.date.valueOf() );
+const all_final = (await getCollection('writing_finals')).sort( (first, second) => second.data.date.valueOf() - first.data.date.valueOf() );
+
+---
+
+<Layout current_page="writing">
+	<Content title="Writing">
+
+
+        <div class="flex sm:flex-row flex-col min-h-fit flex-justify-between flex-items-center w-full p-4 gap-4">
+            <article class="sm:w-50 w-full">
+                <h2 class="font-serif text-2xl">Recently Added</h2>
+                <ol class="list-disc list-inside">
+                    {
+                        all_final.slice(0,2).map(draft => (<li><a class="hover:border-amber-800 border-b-2 border-zinc-100" href={`/writing/drafts/${draft.id}`}>{draft.data.title}</a></li>))
+                    }
+                    {
+                        all_drafts.slice(0,2).map(draft => (<li><a class="hover:border-amber-800 border-b-2 border-zinc-100" href={`/writing/drafts/${draft.id}`}>(DRAFT) {draft.data.title}</a></li>))
+                    }
+                </ol>
+            </article>
+            <article class="sm:w-50 w-full">
+                <h2 class="font-serif text-2xl">Drafts</h2>
+
+                <ol class="list-disc list-inside">
+                    {
+                        all_drafts.map(draft => (<li><a class="hover:border-amber-800 border-b-2 border-zinc-100" href={`/writing/drafts/${draft.id}`}>{draft.data.title}</a></li>))
+                    }
+                </ol>
+            </article>
+            <article class="sm:w-50 w-full">
+                <h2 class="font-serif text-2xl">Final</h2>
+            </article>
+        </div>
+
+	</Content>
+</Layout>

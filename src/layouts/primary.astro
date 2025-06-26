@@ -1,0 +1,48 @@
+---
+    const { current_page } = Astro.props;
+
+    const pages = {
+        'home': { title: "Home", url: "/" },
+        'thoughts': { title: "Thoughts", url: "/thoughts" },
+        'writing': { title: "Writing", url: "/writing" },
+        'research': { title: "Research", url: "/research" },
+        'projects': { title: "Projects", url: "/projects" },
+    }
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <title>SeaGrass</title>
+    </head>
+
+    <body class="min-h-screen w-screen md:grid md:grid-cols-[1fr_4fr] flex flex-col dark:bg-zinc-900 bg-zinc-100 text-black dark:text-white">
+
+        <div class="grid-col-start-1 flex flex-col flex-items-start p-2 md:p-5 gap-5 h-fit">
+            <h1 class="text-3xl font-serif w-full text-center border-b-2 border-blue-300">SeaGrass</h1>
+
+            <nav class="flex flex-col flex-items-start flex-justify-center text-lg w-full">
+                {Object.keys(pages).map(key => {
+                    if (current_page == key) {
+                        return <a href={pages[key].url} class="w-full hover:border-emerald-600 border-amber-600 border-r-4">{pages[key].title}</a>
+                    } else {
+                        return <a href={pages[key].url} class="w-full hover:border-emerald-600 border-zinc-100 dark:border-zinc-900 border-r-4">{pages[key].title}</a>
+                    }
+                })}
+            </nav>
+        </div>
+
+        <div class="md:grid-col-start-2 grid-col-start-1 p-2 md:p-5 w-full h-fit flex flex-items-start flex-justify-center">
+            <slot />
+        </div>
+    </body>
+</html>
+
+<style>
+
+</style>
