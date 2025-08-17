@@ -5,6 +5,81 @@ import Content from "../layouts/content.astro"
 
 <Layout current_page="home">
 	<Content title="Home">
+		<div class="w-full flex flex-col justify-center items-start gap-4">
+			<span class="w-full md:w-2/3 flex flex-col justify-center items-start gap-5">
+				<h2 class="px-3 text-left text-2xl border-b-2 border-green-700">bio</h2>
 
+				<p>
+					A South African masters student, I mostly just stare at a blank screen...
+					Ocassionally I write code, a few short stories, and the rare thesis.
+				</p>
+
+				<p class="text-sm">
+					This site is pretty generic tbh, I have no idea what to write.
+					Semi-professional stuff is always a bit weird and cringe.
+				</p>
+			</span>
+
+			<span class="w-full flex flex-col justify-center items-start gap-5">
+				<h2 class="px-3 text-left text-2xl border-b-2 border-green-700">education</h2>
+				<table class="w-full md:w-2/3 border-black">
+					<thead class="w-full border-y-2 border-amber-600 text-center font-medium">
+						<tr>
+							<th>Name</th>
+							<th>Place</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">NSC (Matric)</td> <td class="px-1">Jeppe High School for Boys</td> 
+							<td class="px-1">2016</td> <td class="px-1">2020</td>
+						</tr>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">BSc</td> <td class="px-1">University of the Witwatersrand</td> 
+							<td class="px-1">2021</td> <td class="px-1">2023</td>
+						</tr>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">BSc (Hons) in Computer Science</td> <td class="px-1">University of the Witwatersrand</td> 
+							<td class="px-1">2024</td> <td class="px-1">2024</td>
+						</tr>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">MSc in Computer Science</td> <td class="px-1">University of the Witwatersrand</td> 
+							<td class="px-1">2025</td> <td class="px-1">Present</td>
+						</tr>
+					</tbody>
+				</table>
+			</span>
+
+			<span class="w-full flex flex-col justify-center items-start gap-5">
+				<h2 class="px-3 text-left text-2xl border-b-2 border-green-700">employment</h2>
+				<table class="w-full md:w-2/3 border-black border-spacing-2">
+					<thead class="w-full border-y-2 border-amber-600 text-center font-medium">
+						<tr>
+							<th>Company</th>
+							<th>Title</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">Poynting Delta</td> <td class="px-1">Intern Software Developer</td> 
+							<td class="px-1">Dec 2021</td> <td class="px-1"> Feb 2023</td>
+						</tr>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">Outerjoin</td> <td class="px-1">Junior Software Developer (Part-Time)</td> 
+							<td class="px-1">Feb 2025</td> <td class="px-1">August 2025</td>
+						</tr>
+						<tr class="border-b-2 border-gray-700">
+							<td class="px-1">University of the Witwatersand</td> <td class="px-1">Associate Lecturer</td> 
+							<td class="px-1">July 2025</td> <td class="px-1">Present</td>
+						</tr>
+					</tbody>
+				</table>
+			</span>
+
+		</div>
 	</Content>
 </Layout>
